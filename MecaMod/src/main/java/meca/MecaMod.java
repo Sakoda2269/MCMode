@@ -4,10 +4,12 @@ import meca.Entities.Bullet1.EntityBullet;
 import meca.Entities.Bullet1.ModelBullet;
 import meca.Entities.Bullet1.RenderBullet;
 import meca.Items.WeaponUnits.MC5single;
+import net.minecraft.client.renderer.block.model.ModelResourceLocation;
 import net.minecraft.client.renderer.entity.Render;
 import net.minecraft.client.renderer.entity.RenderManager;
 import net.minecraft.item.Item;
 import net.minecraft.util.ResourceLocation;
+import net.minecraftforge.client.model.ModelLoader;
 import net.minecraftforge.fml.client.registry.IRenderFactory;
 import net.minecraftforge.fml.client.registry.RenderingRegistry;
 import net.minecraftforge.fml.common.Mod;
@@ -41,7 +43,7 @@ public class MecaMod {
 	    	ForgeRegistries.ITEMS.register(single5);
 
 	    	if(event.getSide().isClient()) {
-	    		//ModelLoader.setCustomModelResourceLocation(Tomato, 0, new ModelResourceLocation(new ResourceLocation("testmod", "tomato"), "inventory"));
+	    		ModelLoader.setCustomModelResourceLocation(single5, 0, new ModelResourceLocation("mecamod:single5"));
 	    		RenderingRegistry.registerEntityRenderingHandler(EntityBullet.class, new IRenderFactory<EntityBullet>() {
 	    			@Override
 	    			public Render<? super EntityBullet> createRenderFor(RenderManager manager){

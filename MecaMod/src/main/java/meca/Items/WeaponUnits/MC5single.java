@@ -10,9 +10,9 @@ public class MC5single extends MainCanon{
 
 	public MC5single() {
 		super(UnitBase.Small, 3, 5, 100);
-		this.setRegistryName(new ResourceLocation(MecaMod.MODID,"5cmSingleCanon"));
+		this.setRegistryName(new ResourceLocation(MecaMod.MODID,"single5"));
 		this.setCreativeTab(CreativeTabs.COMBAT);
-		this.setUnlocalizedName("5cmSingleCanon");
+		this.setUnlocalizedName("single5");
 		this.maxStackSize=1;
 	}
 

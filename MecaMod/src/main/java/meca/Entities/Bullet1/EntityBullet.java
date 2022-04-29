@@ -41,7 +41,6 @@ public class EntityBullet extends EntityLiving{
 				this.setVelocity(speed*lookx, vy, speed*lookz);
 				if(this.onGround || this.collided || hitent) {
 					world.createExplosion(this, this.posX, this.posY,this.posZ, 10, false);
-					owner.setPosition(posX, posY, posZ);
 					this.setDead();
 				}
 			}
