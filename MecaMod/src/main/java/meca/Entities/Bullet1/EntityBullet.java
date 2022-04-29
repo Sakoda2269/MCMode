@@ -1,8 +1,9 @@
-package meca.Entities;
+package meca.Entities.Bullet1;
 
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityLiving;
 import net.minecraft.entity.player.EntityPlayer;
+import net.minecraft.util.EnumParticleTypes;
 import net.minecraft.world.World;
 
 public class EntityBullet extends EntityLiving{
@@ -17,6 +18,8 @@ public class EntityBullet extends EntityLiving{
 	public EntityBullet(World worldIn) {
 		super(worldIn);
 		this.setSize(0.1f, 0.1f);
+		this.setHealth(100000000);
+
 	}
 	public EntityBullet(World worldin,EntityPlayer ownerin) {
 		super(worldin);
@@ -31,17 +34,26 @@ public class EntityBullet extends EntityLiving{
 	@Override
 	public void onUpdate() {
 		super.onUpdate();
-		vy-=0.005f;
-		if(owner!=null) {
-			this.setVelocity(speed*lookx, vy, speed*lookz);
-			if(this.onGround || this.collided || hitent) {
-				world.createExplosion(this, this.posX, this.posY,this.posZ, 10, false);
-				owner.setPosition(posX, posY, posZ);
-				this.setDead();
+		world.spawnParticle(EnumParticleTypes.SMOKE_LARGE, posX, posY, posZ, 0, 0, 0);
+		if (!world.isRemote) {
+			vy-=0.005f;
+			if(owner!=null) {
+				this.setVelocity(speed*lookx, vy, speed*lookz);
+				if(this.onGround || this.collided || hitent) {
+					world.createExplosion(this, this.posX, this.posY,this.posZ, 10, false);
+					owner.setPosition(posX, posY, posZ);
+					this.setDead();
+				}
 			}
 		}
 
 
+	}
+
+
+
+	@Override
+	public void knockBack(Entity entityIn, float strength, double xRatio, double zRatio) {
 	}
 
 	@Override

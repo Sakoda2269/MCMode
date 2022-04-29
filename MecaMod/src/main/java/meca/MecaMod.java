@@ -1,8 +1,8 @@
 package meca;
 
-import meca.Entities.EntityBullet;
-import meca.Entities.ModelBullet;
-import meca.Entities.RenderBullet;
+import meca.Entities.Bullet1.EntityBullet;
+import meca.Entities.Bullet1.ModelBullet;
+import meca.Entities.Bullet1.RenderBullet;
 import meca.Items.WeaponUnits.MC5single;
 import net.minecraft.client.renderer.entity.Render;
 import net.minecraft.client.renderer.entity.RenderManager;

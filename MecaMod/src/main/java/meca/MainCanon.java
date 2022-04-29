@@ -1,6 +1,6 @@
 package meca;
 
-import meca.Entities.EntityBullet;
+import meca.Entities.Bullet1.EntityBullet;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.ItemStack;
 import net.minecraft.util.ActionResult;
