@@ -22,7 +22,6 @@ import net.minecraftforge.fml.relauncher.SideOnly;
 @Mod(modid = MecaMod.MODID, name = MecaMod.NAME, version = MecaMod.VERSION)
 public class MecaMod {
 
-	//aaaaaaaasd
 
 	 	public static final String MODID = "mecamod";
 	    public static final String NAME = "MecaMod";
