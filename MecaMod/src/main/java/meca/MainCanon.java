@@ -23,7 +23,7 @@ public abstract class MainCanon extends WeaponUnit{
 		power = powerin;
 		range = rangein;
 		canonnum=canonnumin;
-		caliberin = caliber;
+		caliber = caliberin;
 		this.setMaxDamage(101);
 		this.setMaxStackSize(1);
 	}
@@ -31,10 +31,8 @@ public abstract class MainCanon extends WeaponUnit{
 	@Override
 	public ActionResult<ItemStack> onItemRightClick(World worldIn, EntityPlayer playerIn, EnumHand handIn) {
 
-
 		if (!worldIn.isRemote) {
 			damage+=(int)(100/canonnum);
-			System.out.println(damage);
 			this.setDamage(playerIn.getHeldItemMainhand(), damage);
 			if(101-damage<=10) {
 				playerIn.getCooldownTracker().setCooldown(this, size*50);
@@ -42,7 +40,7 @@ public abstract class MainCanon extends WeaponUnit{
 			}
 			worldIn.spawnEntity(new EntityBullet(worldIn,playerIn,range,power));
 		}
-
+		playerIn.rotationPitch-=(1.5f*caliber);
 
 		return super.onItemRightClick(worldIn, playerIn, handIn);
 	}
