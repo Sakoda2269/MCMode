@@ -6,14 +6,15 @@ import meca.UnitBase;
 import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.util.ResourceLocation;
 
-public class MC5single extends MainCanon{
+public class MCtwin5 extends MainCanon{
 
-	public MC5single() {
+	public MCtwin5() {
 		super(UnitBase.Small, 3, 5, 100);
-		this.setRegistryName(new ResourceLocation(MecaMod.MODID,"single5"));
+		this.setRegistryName(new ResourceLocation(MecaMod.MODID,"twin5"));
 		this.setCreativeTab(CreativeTabs.COMBAT);
-		this.setUnlocalizedName("single5");
+		this.setUnlocalizedName("twin5");
 		this.maxStackSize=1;
+		range=100;
 	}
 
 }

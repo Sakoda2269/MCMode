@@ -9,10 +9,12 @@ import net.minecraft.world.World;
 public class EntityBullet extends EntityLiving{
 
 	float vy;
+	float vydown;
 	float lookx,lookz;
 	float looky;
-	float speed=1.5f;
+	float speed=0;
 	boolean hitent;
+	float range;
 	EntityPlayer owner;
 
 	public EntityBullet(World worldIn) {
@@ -21,9 +23,11 @@ public class EntityBullet extends EntityLiving{
 		this.setHealth(100000000);
 
 	}
-	public EntityBullet(World worldin,EntityPlayer ownerin) {
+	public EntityBullet(World worldin,EntityPlayer ownerin,int rangein) {
 		super(worldin);
 		owner=ownerin;
+		range = rangein/120;
+		speed=rangein/100*1.5f;
 		float p = (float)Math.atan(owner.getPitchYaw().y/owner.getPitchYaw().x);
 		looky=(float)owner.getLookVec().y;
 		lookx=(float)owner.getLookVec().x;
@@ -36,7 +40,7 @@ public class EntityBullet extends EntityLiving{
 		super.onUpdate();
 		world.spawnParticle(EnumParticleTypes.SMOKE_LARGE, posX, posY, posZ, 0, 0, 0);
 		if (!world.isRemote) {
-			vy-=0.005f;
+			vy-=0.025f;
 			if(owner!=null) {
 				this.setVelocity(speed*lookx, vy, speed*lookz);
 				if(this.onGround || this.collided || hitent) {

@@ -9,8 +9,8 @@ import net.minecraft.world.World;
 
 public abstract class MainCanon extends WeaponUnit{
 
-	int power;
-	int range;
+	public int power;
+	public int range;
 
 	public MainCanon(int sizein,int weightin,int powerin,int rangein) {
 		super(sizein, WeaponUnit.MainCanon,weightin);
@@ -24,7 +24,7 @@ public abstract class MainCanon extends WeaponUnit{
 
 
 		if (!worldIn.isRemote) {
-			worldIn.spawnEntity(new EntityBullet(worldIn,playerIn));
+			worldIn.spawnEntity(new EntityBullet(worldIn,playerIn,range));
 		}
 
 
