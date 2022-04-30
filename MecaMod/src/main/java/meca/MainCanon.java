@@ -1,14 +1,19 @@
 package meca;
 
+import java.util.Random;
+
 import meca.Entities.Bullet1.EntityBullet;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.ItemStack;
 import net.minecraft.util.ActionResult;
 import net.minecraft.util.EnumHand;
+import net.minecraft.util.EnumParticleTypes;
 import net.minecraft.world.World;
 
 public abstract class MainCanon extends WeaponUnit{
+
+	Random rnd = new Random();
 
 	public int power;
 	public int range;
@@ -30,7 +35,16 @@ public abstract class MainCanon extends WeaponUnit{
 
 	@Override
 	public ActionResult<ItemStack> onItemRightClick(World worldIn, EntityPlayer playerIn, EnumHand handIn) {
-
+		for(int i=0;i<20;i++) {
+			int a=45-rnd.nextInt(90);
+			float b=0.5f-rnd.nextFloat();
+			float c=45-rnd.nextInt(90);
+			float d = playerIn.getRotationYawHead();
+			System.out.println(d);
+			double e=-Math.sin(Math.toRadians(d+a));
+			double f=Math.cos(Math.toRadians(d+c));
+			worldIn.spawnParticle(EnumParticleTypes.FLAME, playerIn.posX, playerIn.posY+1.5f, playerIn.posZ, 0.5*e,0.8*b, 0.5*f);
+		}
 		if (!worldIn.isRemote) {
 			damage+=(int)(100/canonnum);
 			this.setDamage(playerIn.getHeldItemMainhand(), damage);

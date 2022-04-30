@@ -4,6 +4,8 @@ import meca.Entities.Bullet1.EntityBullet;
 import meca.Entities.Bullet1.ModelBullet;
 import meca.Entities.Bullet1.RenderBullet;
 import meca.Items.WeaponUnits.MCsingle10;
+import meca.Items.WeaponUnits.MCsingle15;
+import meca.Items.WeaponUnits.MCtwin10;
 import meca.Items.WeaponUnits.MCtwin5;
 import net.minecraft.client.renderer.block.model.ModelResourceLocation;
 import net.minecraft.client.renderer.entity.Render;
@@ -32,6 +34,8 @@ public class MecaMod {
 
 	    public static Item twin5 = new MCtwin5();
 	    public static Item single10=new MCsingle10();
+	    public static Item twin10=new MCtwin10();
+	    public static Item single15=new MCsingle15();
 
 	    @Mod.Instance(MODID)
 		public static MecaMod instance;
@@ -42,11 +46,15 @@ public class MecaMod {
 
 	    	ForgeRegistries.ITEMS.register(twin5);
 	    	ForgeRegistries.ITEMS.register(single10);
+	    	ForgeRegistries.ITEMS.register(twin10);
+	    	ForgeRegistries.ITEMS.register(single15);
 
 	    	if(event.getSide().isClient()) {
 
 	    		ModelLoader.setCustomModelResourceLocation(twin5, 0, new ModelResourceLocation("mecamod:maincanon/twin5"));
 	    		ModelLoader.setCustomModelResourceLocation(single10, 0, new ModelResourceLocation("mecamod:maincanon/single10"));
+	    		ModelLoader.setCustomModelResourceLocation(twin10, 0, new ModelResourceLocation("mecamod:maincanon/twin10"));
+	    		ModelLoader.setCustomModelResourceLocation(single15, 0, new ModelResourceLocation("mecamod:maincanon/single15"));
 
 
 	    		RenderingRegistry.registerEntityRenderingHandler(EntityBullet.class, new IRenderFactory<EntityBullet>() {
