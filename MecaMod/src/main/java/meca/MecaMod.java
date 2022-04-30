@@ -3,6 +3,7 @@ package meca;
 import meca.Entities.Bullet1.EntityBullet;
 import meca.Entities.Bullet1.ModelBullet;
 import meca.Entities.Bullet1.RenderBullet;
+import meca.Items.WeaponUnits.MCsingle10;
 import meca.Items.WeaponUnits.MCtwin5;
 import net.minecraft.client.renderer.block.model.ModelResourceLocation;
 import net.minecraft.client.renderer.entity.Render;
@@ -29,8 +30,8 @@ public class MecaMod {
 	    public static final String NAME = "MecaMod";
 	    public static final String VERSION = "1.0";
 
-	    public static Item Test = new TestItem(UnitBase.Small,WeaponUnit.MainCanon);
 	    public static Item twin5 = new MCtwin5();
+	    public static Item single10=new MCsingle10();
 
 	    @Mod.Instance(MODID)
 		public static MecaMod instance;
@@ -39,11 +40,15 @@ public class MecaMod {
 	    public void preInit(FMLPreInitializationEvent event)
 	    {
 
-	    	ForgeRegistries.ITEMS.register(Test);
 	    	ForgeRegistries.ITEMS.register(twin5);
+	    	ForgeRegistries.ITEMS.register(single10);
 
 	    	if(event.getSide().isClient()) {
+
 	    		ModelLoader.setCustomModelResourceLocation(twin5, 0, new ModelResourceLocation("mecamod:maincanon/twin5"));
+	    		ModelLoader.setCustomModelResourceLocation(single10, 0, new ModelResourceLocation("mecamod:maincanon/single10"));
+
+
 	    		RenderingRegistry.registerEntityRenderingHandler(EntityBullet.class, new IRenderFactory<EntityBullet>() {
 	    			@Override
 	    			public Render<? super EntityBullet> createRenderFor(RenderManager manager){

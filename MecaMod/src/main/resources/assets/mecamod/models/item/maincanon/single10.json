@@ -2,10 +2,10 @@
 	"credit": "Made with Blockbench",
 	"texture_size": [32, 32],
 	"textures": {
-		"0": "mecamod:items/twin5/texture50",
-		"2": "mecamod:items/twin5/texture53",
-		"3": "mecamod:items/twin5/texture52",
-		"particle": "mecamod:items/twin5/texture50"
+		"0": "mecamod:items/single10/texture50",
+		"2": "mecamod:items/single10/texture53",
+		"3": "mecamod:items/single10/texture52",
+		"particle": "mecamod:items/single10/texture50"
 	},
 	"elements": [
 		{
@@ -36,8 +36,8 @@
 		},
 		{
 			"name": "canon",
-			"from": [6, 6, -8],
-			"to": [7, 7, 1],
+			"from": [7, 6, -8],
+			"to": [8, 8, 1],
 			"rotation": {"angle": 22.5, "axis": "x", "origin": [0, 0, 0]},
 			"faces": {
 				"north": {"uv": [4, 4, 6, 6], "texture": "#0"},
@@ -50,8 +50,8 @@
 		},
 		{
 			"name": "canon",
-			"from": [9, 6, -8],
-			"to": [10, 7, 1],
+			"from": [8, 6, -8],
+			"to": [9, 8, 1],
 			"rotation": {"angle": 22.5, "axis": "x", "origin": [0, 0, 0]},
 			"faces": {
 				"north": {"uv": [4, 4, 6, 6], "texture": "#0"},
@@ -83,7 +83,7 @@
 		},
 		"gui": {
 			"rotation": [-1, 150, 0],
-			"translation": [0, 3.75, 0]
+			"translation": [-0.5, 3.75, 0]
 		},
 		"head": {
 			"translation": [0, 14.25, 0]
