@@ -47,6 +47,7 @@ public class EntityBullet extends EntityLiving{
 				this.setVelocity(speed*lookx, vy, speed*lookz);
 				if(this.onGround || this.collided || hitent) {
 					world.createExplosion(owner, this.posX, this.posY,this.posZ, power/2, false);
+					System.out.println(posX+","+posY+","+posZ);
 					this.setDead();
 				}
 			}
@@ -74,6 +75,13 @@ public class EntityBullet extends EntityLiving{
 			hitent=true;
 		}
 	}
+	@Override
+	protected boolean canDespawn() {
+		// TODO 自動生成されたメソッド・スタブ
+		return false;
+	}
+
+
 
 
 
