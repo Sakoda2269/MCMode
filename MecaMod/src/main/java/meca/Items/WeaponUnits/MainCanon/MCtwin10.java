@@ -1,4 +1,4 @@
-package meca.Items.WeaponUnits;
+package meca.Items.WeaponUnits.MainCanon;
 
 import meca.MainCanon;
 import meca.MecaMod;

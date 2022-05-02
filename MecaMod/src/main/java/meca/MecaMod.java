@@ -3,12 +3,13 @@ package meca;
 import meca.Entities.Bullet1.EntityBullet;
 import meca.Entities.Bullet1.ModelBullet;
 import meca.Entities.Bullet1.RenderBullet;
-import meca.Items.WeaponUnits.MCsingle10;
-import meca.Items.WeaponUnits.MCsingle15;
-import meca.Items.WeaponUnits.MCsingle30;
-import meca.Items.WeaponUnits.MCtwin10;
-import meca.Items.WeaponUnits.MCtwin20;
-import meca.Items.WeaponUnits.MCtwin5;
+import meca.Items.WeaponUnits.MainCanon.MCsingle10;
+import meca.Items.WeaponUnits.MainCanon.MCsingle15;
+import meca.Items.WeaponUnits.MainCanon.MCsingle30;
+import meca.Items.WeaponUnits.MainCanon.MCsingle40;
+import meca.Items.WeaponUnits.MainCanon.MCtwin10;
+import meca.Items.WeaponUnits.MainCanon.MCtwin20;
+import meca.Items.WeaponUnits.MainCanon.MCtwin5;
 import net.minecraft.client.renderer.block.model.ModelResourceLocation;
 import net.minecraft.client.renderer.entity.Render;
 import net.minecraft.client.renderer.entity.RenderManager;
@@ -40,6 +41,7 @@ public class MecaMod {
 	    public static Item single15=new MCsingle15();
 	    public static Item twin20=new MCtwin20();
 	    public static Item single30=new MCsingle30();
+	    public static Item single40=new MCsingle40();
 
 	    @Mod.Instance(MODID)
 		public static MecaMod instance;
@@ -54,6 +56,7 @@ public class MecaMod {
 	    	ForgeRegistries.ITEMS.register(single15);
 	    	ForgeRegistries.ITEMS.register(twin20);
 	    	ForgeRegistries.ITEMS.register(single30);
+	    	ForgeRegistries.ITEMS.register(single40);
 
 	    	if(event.getSide().isClient()) {
 
@@ -63,7 +66,8 @@ public class MecaMod {
 	    		ModelLoader.setCustomModelResourceLocation(single15, 0, new ModelResourceLocation("mecamod:maincanon/single15"));
 	    		ModelLoader.setCustomModelResourceLocation(twin20, 0, new ModelResourceLocation("mecamod:maincanon/twin20"));
 	    		ModelLoader.setCustomModelResourceLocation(single30, 0, new ModelResourceLocation("mecamod:maincanon/single30"));
-
+	    		ModelLoader.setCustomModelResourceLocation(single40, 0, new ModelResourceLocation("mecamod:maincanon/single40"));
+	    		
 
 	    		RenderingRegistry.registerEntityRenderingHandler(EntityBullet.class, new IRenderFactory<EntityBullet>() {
 	    			@Override
