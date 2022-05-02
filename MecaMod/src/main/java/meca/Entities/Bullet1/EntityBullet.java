@@ -3,6 +3,7 @@ package meca.Entities.Bullet1;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityLiving;
 import net.minecraft.entity.player.EntityPlayer;
+import net.minecraft.util.DamageSource;
 import net.minecraft.util.EnumParticleTypes;
 import net.minecraft.world.World;
 
@@ -35,6 +36,12 @@ public class EntityBullet extends EntityLiving{
 		lookx=(float)owner.getLookVec().x;
 		lookz=(float)owner.getLookVec().z;
 		this.setLocationAndAngles(owner.posX, owner.posY+1.5, owner.posZ, owner.getRotationYawHead(), p);
+	}
+
+
+
+	@Override
+	protected void damageEntity(DamageSource damageSrc, float damageAmount) {
 	}
 
 	@Override

@@ -3,6 +3,10 @@ package meca;
 import meca.Entities.Bullet1.EntityBullet;
 import meca.Entities.Bullet1.ModelBullet;
 import meca.Entities.Bullet1.RenderBullet;
+import meca.Entities.FlareBullet.EntityFlare;
+import meca.Entities.FlareBullet.FlareLight;
+import meca.Entities.FlareBullet.ModelFlare;
+import meca.Entities.FlareBullet.RenderFlare;
 import meca.Items.WeaponUnits.MainCanon.MCsingle10;
 import meca.Items.WeaponUnits.MainCanon.MCsingle15;
 import meca.Items.WeaponUnits.MainCanon.MCsingle30;
@@ -10,6 +14,8 @@ import meca.Items.WeaponUnits.MainCanon.MCsingle40;
 import meca.Items.WeaponUnits.MainCanon.MCtwin10;
 import meca.Items.WeaponUnits.MainCanon.MCtwin20;
 import meca.Items.WeaponUnits.MainCanon.MCtwin5;
+import meca.Items.WeaponUnits.Other.MCFlare;
+import net.minecraft.block.Block;
 import net.minecraft.client.renderer.block.model.ModelResourceLocation;
 import net.minecraft.client.renderer.entity.Render;
 import net.minecraft.client.renderer.entity.RenderManager;
@@ -42,6 +48,13 @@ public class MecaMod {
 	    public static Item twin20=new MCtwin20();
 	    public static Item single30=new MCsingle30();
 	    public static Item single40=new MCsingle40();
+	    public static Item flare=new MCFlare();
+
+
+
+//	    public static Item test=new TestItem(1,1);
+
+	    public static Block flareB=new FlareLight();
 
 	    @Mod.Instance(MODID)
 		public static MecaMod instance;
@@ -57,6 +70,10 @@ public class MecaMod {
 	    	ForgeRegistries.ITEMS.register(twin20);
 	    	ForgeRegistries.ITEMS.register(single30);
 	    	ForgeRegistries.ITEMS.register(single40);
+	    	ForgeRegistries.ITEMS.register(flare);
+//	    	ForgeRegistries.ITEMS.register(test);
+
+	    	ForgeRegistries.BLOCKS.register(flareB);
 
 	    	if(event.getSide().isClient()) {
 
@@ -67,12 +84,22 @@ public class MecaMod {
 	    		ModelLoader.setCustomModelResourceLocation(twin20, 0, new ModelResourceLocation("mecamod:maincanon/twin20"));
 	    		ModelLoader.setCustomModelResourceLocation(single30, 0, new ModelResourceLocation("mecamod:maincanon/single30"));
 	    		ModelLoader.setCustomModelResourceLocation(single40, 0, new ModelResourceLocation("mecamod:maincanon/single40"));
-	    		
+	    		ModelLoader.setCustomModelResourceLocation(flare, 0, new ModelResourceLocation("mecamod:other/flare"));
+
 
 	    		RenderingRegistry.registerEntityRenderingHandler(EntityBullet.class, new IRenderFactory<EntityBullet>() {
 	    			@Override
 	    			public Render<? super EntityBullet> createRenderFor(RenderManager manager){
 	    				return new RenderBullet(manager,new ModelBullet(),0.3f);
+
+	    			}
+	    		});
+
+
+	    		RenderingRegistry.registerEntityRenderingHandler(EntityFlare.class, new IRenderFactory<EntityFlare>() {
+	    			@Override
+	    			public Render<? super EntityFlare> createRenderFor(RenderManager manager){
+	    				return new RenderFlare(manager,new ModelFlare(),0.3f);
 
 	    			}
 	    		});
