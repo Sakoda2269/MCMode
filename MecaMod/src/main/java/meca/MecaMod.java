@@ -4,9 +4,12 @@ import meca.Entities.Bullet1.EntityBullet;
 import meca.Entities.Bullet1.ModelBullet;
 import meca.Entities.Bullet1.RenderBullet;
 import meca.Entities.FlareBullet.EntityFlare;
+import meca.Entities.FlareBullet.EntityFlareInTheSky;
 import meca.Entities.FlareBullet.FlareLight;
 import meca.Entities.FlareBullet.ModelFlare;
+import meca.Entities.FlareBullet.ModelFlare2;
 import meca.Entities.FlareBullet.RenderFlare;
+import meca.Entities.FlareBullet.RenderFlare2;
 import meca.Items.WeaponUnits.MainCanon.MCsingle10;
 import meca.Items.WeaponUnits.MainCanon.MCsingle15;
 import meca.Items.WeaponUnits.MainCanon.MCsingle30;
@@ -103,6 +106,15 @@ public class MecaMod {
 
 	    			}
 	    		});
+
+	    		RenderingRegistry.registerEntityRenderingHandler(EntityFlareInTheSky.class, new IRenderFactory<EntityFlareInTheSky>() {
+	    			@Override
+	    			public Render<? super EntityFlareInTheSky> createRenderFor(RenderManager manager){
+	    				return new RenderFlare2(manager,new ModelFlare2(),0.3f);
+
+	    			}
+	    		});
+
 	    	}
 
 	    }
@@ -110,7 +122,9 @@ public class MecaMod {
 	    @Mod.EventHandler
 	    public void init(FMLInitializationEvent event)
 	    {
-	    	EntityRegistry.registerModEntity(new ResourceLocation("bullet"), EntityBullet.class, "bullet", 0, this, 50, 1, true, 1000, 22);
+	    	EntityRegistry.registerModEntity(new ResourceLocation("bullet"), EntityBullet.class, "bullet", 0, this, 1000, 1, true, 1000, 22);
+	    	EntityRegistry.registerModEntity(new ResourceLocation("flare"), EntityFlare.class, "flare", 0, this, 50, 1, true, 1000, 22);
+	    	EntityRegistry.registerModEntity(new ResourceLocation("flare2"), EntityFlareInTheSky.class, "flamebullet", 0, this, 500, 1, true, 1000, 22);
 	    }
 
 	    @SideOnly(Side.CLIENT)
