@@ -47,8 +47,9 @@ public class EntityBullet extends EntityLiving{
 	@Override
 	public void onUpdate() {
 		super.onUpdate();
-		world.spawnParticle(EnumParticleTypes.SMOKE_LARGE, posX, posY, posZ, 0, 0, 0);
+		world.spawnParticle(EnumParticleTypes.FLAME, posX, posY, posZ, 0, 0, 0);
 		if (!world.isRemote) {
+			//
 			vy-=2.5/range;
 			if(owner!=null) {
 				this.setVelocity(speed*lookx, vy, speed*lookz);

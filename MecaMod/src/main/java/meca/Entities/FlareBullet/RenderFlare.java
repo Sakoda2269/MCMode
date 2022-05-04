@@ -11,7 +11,7 @@ import net.minecraftforge.fml.relauncher.SideOnly;
 @SideOnly(Side.CLIENT)
 public class RenderFlare extends RenderLiving<EntityLiving>{
 
-	public static final ResourceLocation texture = new ResourceLocation("mecamod:textures/entity/Flare/texture.png");
+	public static final ResourceLocation texture = new ResourceLocation("mecamod:textures/entity/flare/texture.png");
 
 	public RenderFlare(RenderManager rendermanagerIn, ModelBase modelbaseIn, float shadowsizeIn) {
 		super(rendermanagerIn, modelbaseIn, shadowsizeIn);

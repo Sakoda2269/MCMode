@@ -29,7 +29,8 @@ public class EntityFlareInTheSky extends EntityLiving{
 	@Override
 	public void onUpdate() {
 		super.onUpdate();
-		world.spawnParticle(EnumParticleTypes.FLAME, posX, posY, posZ, rnd.nextFloat(), 0.05, rnd.nextFloat());
+		for(int i=0;i<5;i++)
+			world.spawnParticle(EnumParticleTypes.FLAME, posX, posY, posZ, 0.5-rnd.nextFloat(), -0.1, 0.5-rnd.nextFloat());
 		timer++;
 		if(timer>=350) {
 			this.setDead();

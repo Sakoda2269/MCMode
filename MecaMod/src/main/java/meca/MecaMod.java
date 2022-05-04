@@ -123,8 +123,8 @@ public class MecaMod {
 	    public void init(FMLInitializationEvent event)
 	    {
 	    	EntityRegistry.registerModEntity(new ResourceLocation("bullet"), EntityBullet.class, "bullet", 0, this, 1000, 1, true, 1000, 22);
-	    	EntityRegistry.registerModEntity(new ResourceLocation("flare"), EntityFlare.class, "flare", 0, this, 50, 1, true, 1000, 22);
-	    	EntityRegistry.registerModEntity(new ResourceLocation("flare2"), EntityFlareInTheSky.class, "flamebullet", 0, this, 500, 1, true, 1000, 22);
+	    	EntityRegistry.registerModEntity(new ResourceLocation("flare"), EntityFlare.class, "flare", 1, this, 50, 1, true, 1000, 22);
+	    	EntityRegistry.registerModEntity(new ResourceLocation("flare2"), EntityFlareInTheSky.class, "flamebullet", 2, this, 500, 1, true, 1000, 22);
 	    }
 
 	    @SideOnly(Side.CLIENT)

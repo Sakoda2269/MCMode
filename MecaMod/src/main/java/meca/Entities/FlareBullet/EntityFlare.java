@@ -24,6 +24,7 @@ public class EntityFlare extends EntityLiving{
 	boolean grounded=false;
 	double vx,vz,vy;
 	boolean summon;
+	boolean set;
 	List<EntityLivingBase> entity2;
 
 	public EntityFlare(World worldIn) {super(worldIn);}
@@ -39,6 +40,7 @@ public class EntityFlare extends EntityLiving{
 		vz=ve.z;
 		grounded=false;
 		summon=false;
+		set=false;
 		this.setPosition(owner.posX, owner.posY+1.5, owner.posZ);
 		// TODO 自動生成されたコンストラクター・スタブ
 	}
@@ -51,6 +53,7 @@ public class EntityFlare extends EntityLiving{
 
 		timer=0;
 		vy=0.5;
+		set=false;
 		grounded=false;
 		summon=false;
 	}
@@ -68,12 +71,13 @@ public class EntityFlare extends EntityLiving{
 	public void onUpdate() {
 		super.onUpdate();
 		if(!grounded) {
-			world.spawnParticle(EnumParticleTypes.CRIT, posX, posY, posZ, 0, 0, 0);
+			world.spawnParticle(EnumParticleTypes.FLAME, posX, posY, posZ, 0, 0, 0);
 		}
 		if (!world.isRemote) {
 			timer+=1;
 			if(timer<50) {
 				this.setVelocity(vx, vy, vz);
+
 			}
 
 			if(timer>=50 && timer<400) {
@@ -82,22 +86,25 @@ public class EntityFlare extends EntityLiving{
 					summon=true;
 				}
 				if(this.onGround) {
-					double bx=this.getPositionVector().x;
-					double by=this.getPositionVector().y;
-					double bz=this.getPositionVector().z;
-					posb[0] = new BlockPos(this.getPositionVector());
-					posb[1] = new BlockPos(bx+10,by,bz);
-					posb[2] = new BlockPos(bx-10,by,bz);
-					posb[3] = new BlockPos(bx,by,bz+10);
-					posb[4] = new BlockPos(bx,by,bz-10);
-					posb[5] = new BlockPos(bx,by,bz-20);
-					posb[6] = new BlockPos(bx,by,bz+20);
-					posb[7] = new BlockPos(bx+20,by,bz);
-					posb[8] = new BlockPos(bx-20,by,bz);
-					posb[9] = new BlockPos(bx-20,by,bz+20);
-					posb[10] = new BlockPos(bx-20,by,bz-20);
-					posb[11] = new BlockPos(bx+20,by,bz+20);
-					posb[12] = new BlockPos(bx+20,by,bz-20);
+					if(!set) {
+						double bx=this.getPositionVector().x;
+						double by=this.getPositionVector().y;
+						double bz=this.getPositionVector().z;
+						posb[0] = new BlockPos(this.getPositionVector());
+						posb[1] = new BlockPos(bx+10,by,bz);
+						posb[2] = new BlockPos(bx-10,by,bz);
+						posb[3] = new BlockPos(bx,by,bz+10);
+						posb[4] = new BlockPos(bx,by,bz-10);
+						posb[5] = new BlockPos(bx,by,bz-20);
+						posb[6] = new BlockPos(bx,by,bz+20);
+						posb[7] = new BlockPos(bx+20,by,bz);
+						posb[8] = new BlockPos(bx-20,by,bz);
+						posb[9] = new BlockPos(bx-20,by,bz+20);
+						posb[10] = new BlockPos(bx-20,by,bz-20);
+						posb[11] = new BlockPos(bx+20,by,bz+20);
+						posb[12] = new BlockPos(bx+20,by,bz-20);
+						set=true;
+					}
 
 					for(int i=0;i<posb.length;i++) {
 						world.setBlockState(posb[i],  MecaMod.flareB.getDefaultState());
@@ -107,7 +114,7 @@ public class EntityFlare extends EntityLiving{
 
 					entity2 = world.getEntities(EntityLivingBase.class, EntitySelectors.withinRange(this.posX, this.posY, this.posZ, 25));
 					for(int i=0;i<world.getEntities(EntityLivingBase.class, EntitySelectors.withinRange(this.posX, this.posY, this.posZ, 25)).size();i++) {
-						if(!world.getEntities(EntityLivingBase.class, EntitySelectors.withinRange(this.posX, this.posY, this.posZ, 25)).get(i).isGlowing()) {
+						if(!world.getEntities(EntityLivingBase.class, EntitySelectors.withinRange(this.posX, this.posY, this.posZ, 25)).get(i).isGlowing() && !world.getEntities(EntityLivingBase.class, EntitySelectors.withinRange(this.posX, this.posY, this.posZ, 25)).get(i).equals(this)) {
 							entity2.add(world.getEntities(EntityLivingBase.class, EntitySelectors.withinRange(this.posX, this.posY, this.posZ, 25)).get(i));
 							world.getEntities(EntityLivingBase.class, EntitySelectors.withinRange(this.posX, this.posY, this.posZ, 25)).get(i).setGlowing(true);
 						}
