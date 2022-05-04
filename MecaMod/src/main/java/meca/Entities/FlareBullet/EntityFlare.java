@@ -13,6 +13,8 @@ import net.minecraft.util.EnumParticleTypes;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.Vec3d;
 import net.minecraft.world.World;
+import net.minecraftforge.fml.relauncher.Side;
+import net.minecraftforge.fml.relauncher.SideOnly;
 
 public class EntityFlare extends EntityLiving{
 
@@ -60,6 +62,21 @@ public class EntityFlare extends EntityLiving{
 
 
 
+
+
+
+	@Override
+	@SideOnly(Side.CLIENT)
+	public int getBrightnessForRender() {
+		// TODO 自動生成されたメソッド・スタブ
+		return 15728880;
+	}
+
+	@Override
+	public float getBrightness() {
+		// TODO 自動生成されたメソッド・スタブ
+		return 50.0f;
+	}
 
 	@Override
 	public boolean isImmuneToExplosions() {

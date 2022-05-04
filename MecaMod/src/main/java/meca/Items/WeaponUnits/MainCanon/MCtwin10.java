@@ -1,6 +1,5 @@
 package meca.Items.WeaponUnits.MainCanon;
 
-import meca.MainCanon;
 import meca.MecaMod;
 import meca.UnitBase;
 import net.minecraft.creativetab.CreativeTabs;

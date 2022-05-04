@@ -5,7 +5,7 @@
 		"0": "mecamod:items/maincanon/twin5/texture50",
 		"2": "mecamod:items/maincanon/twin5/texture53",
 		"3": "mecamod:items/maincanon/twin5/texture52",
-		"particle": "mecamod:items/twin5/texture50"
+		"particle": "mecamod:items/maincanon/twin5/texture50"
 	},
 	"elements": [
 		{

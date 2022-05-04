@@ -1,4 +1,4 @@
-package meca.Entities.Bullet1;
+package meca.Entities.MainBullet;
 
 import net.minecraft.client.model.ModelBase;
 import net.minecraft.client.renderer.entity.RenderLiving;
@@ -11,11 +11,11 @@ import net.minecraftforge.fml.relauncher.SideOnly;
 
 
 @SideOnly(Side.CLIENT)
-public class RenderBullet extends RenderLiving<EntityLiving>{
+public class RenderMainBullet extends RenderLiving<EntityLiving>{
 
 	public static final ResourceLocation texture = new ResourceLocation("mecamod:textures/entity/bullet2.png");
 
-	public RenderBullet(RenderManager rendermanagerIn, ModelBase modelbaseIn, float shadowsizeIn) {
+	public RenderMainBullet(RenderManager rendermanagerIn, ModelBase modelbaseIn, float shadowsizeIn) {
 		super(rendermanagerIn, modelbaseIn, 0);
 	}
 

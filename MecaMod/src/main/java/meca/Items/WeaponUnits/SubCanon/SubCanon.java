@@ -1,8 +1,9 @@
-package meca;
+package meca.Items.WeaponUnits.SubCanon;
 
 import java.util.Random;
 
-import meca.Entities.Bullet1.EntityBullet;
+import meca.WeaponUnit;
+import meca.Entities.SubBullet.EntitySubBullet;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.ItemStack;
@@ -12,7 +13,8 @@ import net.minecraft.util.EnumHand;
 import net.minecraft.util.EnumParticleTypes;
 import net.minecraft.world.World;
 
-public abstract class MainCanon extends WeaponUnit{
+public abstract class SubCanon extends WeaponUnit{
+
 
 	Random rnd = new Random();
 
@@ -21,12 +23,12 @@ public abstract class MainCanon extends WeaponUnit{
 	public int canonnum;
 	public boolean shooted;
 	public int caliber;
+	public boolean agh;
 
-	int damage=0;
-
-	public MainCanon(int sizein,int weightin,int powerin,int rangein,int canonnumin,int caliberin) {
+	public SubCanon(int sizein,int weightin,int powerin,int rangein,int canonnumin,int caliberin,boolean aghight) {
 		super(sizein, WeaponUnit.MainCanon,weightin);
 		power = powerin;
+		agh=aghight;
 		range = rangein;
 		canonnum=canonnumin;
 		caliber = caliberin;
@@ -66,7 +68,7 @@ public abstract class MainCanon extends WeaponUnit{
 				playerIn.getCooldownTracker().setCooldown(this, size*50);
 				shooted=true;
 			}
-			worldIn.spawnEntity(new EntityBullet(worldIn,playerIn,range,power));
+			worldIn.spawnEntity(new EntitySubBullet(worldIn,playerIn,range,power,agh));
 		}
 		playerIn.rotationPitch-=(1.5f*caliber);
 
@@ -91,15 +93,6 @@ public abstract class MainCanon extends WeaponUnit{
 		}
 
 	}
-
-
-
-
-
-
-
-
-
 
 
 }

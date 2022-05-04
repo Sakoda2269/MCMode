@@ -1,15 +1,15 @@
-package meca.Entities.Bullet1;
+package meca.Entities.MainBullet;
 
 import net.minecraft.client.model.ModelBase;
 import net.minecraft.client.model.ModelRenderer;
 
 
-public class ModelBullet extends ModelBase{
+public class ModelMainBullet extends ModelBase{
 
 	ModelRenderer model1;
 	ModelRenderer model2;
 
-	public ModelBullet(){
+	public ModelMainBullet(){
 		super();
 
 		 textureWidth=18;
