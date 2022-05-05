@@ -127,7 +127,7 @@ public class MecaMod {
 	    		ModelLoader.setCustomModelResourceLocation(sub15, 0, new ModelResourceLocation("mecamod:subcanon/sub15"));
 	    		ModelLoader.setCustomModelResourceLocation(highsub20, 0, new ModelResourceLocation("mecamod:subcanon/highsub20"));
 	    		ModelLoader.setCustomModelResourceLocation(mecah, 0, new ModelResourceLocation("mecamod:armor/mecahel"));
-	    		ModelLoader.setCustomModelResourceLocation(mecac, 0, new ModelResourceLocation("mecamod:armor/mecache"));
+	    		ModelLoader.setCustomModelResourceLocation(mecac, 0, new ModelResourceLocation("mecamod:armor/mecaches"));
 	    		ModelLoader.setCustomModelResourceLocation(mecal, 0, new ModelResourceLocation("mecamod:armor/mecaleg"));
 	    		ModelLoader.setCustomModelResourceLocation(mecab, 0, new ModelResourceLocation("mecamod:armor/mecaboo"));
 	    		ModelLoader.setCustomModelResourceLocation(flare, 0, new ModelResourceLocation("mecamod:other/flare"));
