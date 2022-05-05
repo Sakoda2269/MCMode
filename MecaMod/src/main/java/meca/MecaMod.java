@@ -11,6 +11,10 @@ import meca.Entities.MainBullet.EntityMainBullet;
 import meca.Entities.MainBullet.ModelMainBullet;
 import meca.Entities.MainBullet.RenderMainBullet;
 import meca.Entities.SubBullet.EntitySubBullet;
+import meca.Items.WeaponUnits.Armor.MCBoots;
+import meca.Items.WeaponUnits.Armor.MCChestPlate;
+import meca.Items.WeaponUnits.Armor.MCHelmet;
+import meca.Items.WeaponUnits.Armor.MCLeggings;
 import meca.Items.WeaponUnits.MainCanon.MCsingle10;
 import meca.Items.WeaponUnits.MainCanon.MCsingle15;
 import meca.Items.WeaponUnits.MainCanon.MCsingle30;
@@ -27,9 +31,14 @@ import net.minecraft.block.Block;
 import net.minecraft.client.renderer.block.model.ModelResourceLocation;
 import net.minecraft.client.renderer.entity.Render;
 import net.minecraft.client.renderer.entity.RenderManager;
+import net.minecraft.init.SoundEvents;
+import net.minecraft.inventory.EntityEquipmentSlot;
 import net.minecraft.item.Item;
+import net.minecraft.item.ItemArmor;
+import net.minecraft.item.ItemArmor.ArmorMaterial;
 import net.minecraft.util.ResourceLocation;
 import net.minecraftforge.client.model.ModelLoader;
+import net.minecraftforge.common.util.EnumHelper;
 import net.minecraftforge.fml.client.registry.IRenderFactory;
 import net.minecraftforge.fml.client.registry.RenderingRegistry;
 import net.minecraftforge.fml.common.Mod;
@@ -49,6 +58,10 @@ public class MecaMod {
 	    public static final String NAME = "MecaMod";
 	    public static final String VERSION = "1.0";
 
+	    public static final ArmorMaterial Meca =
+				EnumHelper.addArmorMaterial("mecca","mecamod:mecaarmor",30,new int[]{3,8,9,2},10,SoundEvents.ITEM_ARMOR_EQUIP_DIAMOND,2F);
+
+
 	    public static Item twin5 = new MCtwin5();
 	    public static Item single10=new MCsingle10();
 	    public static Item twin10=new MCtwin10();
@@ -61,6 +74,10 @@ public class MecaMod {
 	    public static Item sub15=new MCSub15();
 	    public static Item highsub20=new MCHighSub20();
 	    public static Item flare=new MCFlare();
+	    public static ItemArmor mecah = new MCHelmet(Meca,1,EntityEquipmentSlot.HEAD);
+	    public static ItemArmor mecac = new MCChestPlate(Meca,1,EntityEquipmentSlot.CHEST);
+	    public static ItemArmor mecal = new MCLeggings(Meca,1,EntityEquipmentSlot.LEGS);
+	    public static ItemArmor mecab = new MCBoots(Meca,1,EntityEquipmentSlot.FEET);
 
 
 
@@ -86,6 +103,10 @@ public class MecaMod {
 	    	ForgeRegistries.ITEMS.register(highsub15);
 	    	ForgeRegistries.ITEMS.register(sub15);
 	    	ForgeRegistries.ITEMS.register(highsub20);
+	    	ForgeRegistries.ITEMS.register(mecah);
+	    	ForgeRegistries.ITEMS.register(mecac);
+	    	ForgeRegistries.ITEMS.register(mecal);
+	    	ForgeRegistries.ITEMS.register(mecab);
 
 	    	ForgeRegistries.ITEMS.register(flare);
 //	    	ForgeRegistries.ITEMS.register(test);
@@ -105,6 +126,10 @@ public class MecaMod {
 	    		ModelLoader.setCustomModelResourceLocation(highsub15, 0, new ModelResourceLocation("mecamod:subcanon/highsub15"));
 	    		ModelLoader.setCustomModelResourceLocation(sub15, 0, new ModelResourceLocation("mecamod:subcanon/sub15"));
 	    		ModelLoader.setCustomModelResourceLocation(highsub20, 0, new ModelResourceLocation("mecamod:subcanon/highsub20"));
+	    		ModelLoader.setCustomModelResourceLocation(mecah, 0, new ModelResourceLocation("mecamod:armor/mecahel"));
+	    		ModelLoader.setCustomModelResourceLocation(mecac, 0, new ModelResourceLocation("mecamod:armor/mecache"));
+	    		ModelLoader.setCustomModelResourceLocation(mecal, 0, new ModelResourceLocation("mecamod:armor/mecaleg"));
+	    		ModelLoader.setCustomModelResourceLocation(mecab, 0, new ModelResourceLocation("mecamod:armor/mecaboo"));
 	    		ModelLoader.setCustomModelResourceLocation(flare, 0, new ModelResourceLocation("mecamod:other/flare"));
 
 
